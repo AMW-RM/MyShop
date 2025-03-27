@@ -1,3 +1,5 @@
+using MyShop.Models;
+
 namespace MyShop
 {
     public class Program
@@ -6,7 +8,12 @@ namespace MyShop
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();//w³¹czamy kolekcje MVC
+
+            builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+            builder.Services.AddScoped<IProductRepository, MockProductRepository>();
+
             var app = builder.Build();
+
 
             //app.MapGet("/", () => "Hello World!");
             if (app.Environment.IsDevelopment())//tryb development
