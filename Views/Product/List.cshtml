@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MyShop.Models.Product>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>My Shop</title>
+</head>
+<body>
+    <h1>
+        @ViewBag.CurrentCategory;
+
+    </h1>
+   @foreach(var product in Model)
+   {
+       <div> @product.Name </div>
+   }
+</body>
+</html>
