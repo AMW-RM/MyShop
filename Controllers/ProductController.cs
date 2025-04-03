@@ -17,10 +17,12 @@ public class ProductController : Controller
 
     public IActionResult List()
     {
+        //var category = _categoryRepository.AllCategories.FirstOrDefault(x => x.CategoryId == 2);
+        var category = _categoryRepository.AllCategories.FirstOrDefault();
         ProductListViewModel productListViewModel = new ProductListViewModel
         (
-            _productRepository.AllProducts,
-            _categoryRepository.AllCategories.First().Name //Where(x => x.CategoryId = 3 
+            _productRepository.AllProducts, 
+            category.Name
         );
 
         return View(productListViewModel);
