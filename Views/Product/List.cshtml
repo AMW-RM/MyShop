@@ -1,19 +1,23 @@
-﻿@model IEnumerable<MyShop.Models.Product>
+﻿@model MyShop.ViewModels.ProductListViewModel
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>My Shop</title>
+    <title>My Shop - test</title>
 </head>
 <body>
     <h1>
-        @ViewBag.CurrentCategory;
-
+        @Model.CurrentCategory
+       
     </h1>
-   @foreach(var product in Model)
-   {
-       <div> @product.Name </div>
-   }
+    @foreach (var product in Model.Products)
+    {
+        <div>
+            <h1>@product.Name</h1>
+            <h2>@product.Price.ToString("c")</h2> @* format waluty *@
+            <h2>@product.Category.Name</h2>
+        </div>
+    }
 </body>
 </html>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyShop.Models;
+using MyShop.ViewModels;
 
 namespace MyShop.Controllers;
 
@@ -14,10 +15,14 @@ public class ProductController : Controller
         _categoryRepository = categoryRepository;
     }
 
-    public  IActionResult List()
+    public IActionResult List()
     {
-        ViewBag.CurrentCategory = "chemia";
-        var products = _productRepository.AllProducts;
-        return View(products);
+        ProductListViewModel productListViewModel = new ProductListViewModel
+        (
+            _productRepository.AllProducts,
+            _categoryRepository.AllCategories.First().Name //Where(x => x.CategoryId = 3 
+        );
+
+        return View(productListViewModel);
     }
 }
