@@ -1,13 +1,71 @@
 ﻿@model ProductListViewModel
-<h1>
-    @Model.CurrentCategory
-
-</h1>
-@foreach (var product in Model.Products)
-{
-    <div>
-        <h1>@product.Name</h1>
-        <h2>@product.Price.ToString("c")</h2> @* format waluty *@
-        <h2>@product.Category.Name</h2>
+<div class="row mb-4">
+    <div class="col">
+        <h1 class="display-4 mb-4">
+            @Model.CurrentCategory
+        </h1>
     </div>
-}
+</div>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @foreach (var product in Model.Products)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <div class="mb-2">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-half text-warning"></i>
+                        <small class="text-muted ms-1">(4.4)</small>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-primary">@product.Category.Name</span>
+                        <h4 class="text-success">@product.Price.ToString("c")</h4>
+                    </div>
+                    <p class="card-text">@product.Category.Description</p>
+                    <div class="d-grid">
+                        <button class="btn btn-outline-primary"><i class="bi bi-cart-plus me-2"></i>Dodaj do koszyka</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@* <script>
+    $(document).ready(function() {
+        //efekt animacji przy najechaniu na kartę produktu
+       $('.card').hover(
+           function() {
+               $(this).addClass('shadow-lg').css('transition', 'all 0.3s');
+           },
+           function() {
+               $(this).remoweClass('shadow-lg').css('transition', 'all 0.3s');
+           }
+       );
+       //obsłua przycisku dodaj do koszyka
+       $('.btn-outline-primary').click(function(){
+           alert('Produkt dodany do koszyka')
+       });
+    });
+</script> *@
+<script>
+    $(document).ready(function() {
+        // Efekt animacji przy najechaniu na kartę produktu
+        $('.card').hover(
+            function() {
+                $(this).addClass('shadow-lg').css('transition', 'all 0.3s');
+            },
+            function() {
+                $(this).removeClass('shadow-lg').css('transition', 'all 0.3s');
+            }
+        );
+
+        // Obsługa przycisku "Dodaj do koszyka"
+        $('.btn-outline-primary').click(function() {
+            alert('Produkt został dodany do koszyka!');
+        });
+    });
+</script>
