@@ -12,7 +12,7 @@ namespace MyShop
             builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
             builder.Services.AddScoped<IProductRepository, MockProductRepository>();
             builder.Services.AddScoped<IIndexRepository, MockIndexRepository>();
-
+            builder.Services.AddScoped<IMockContactRepository, MockContactRepository>();
 
             var app = builder.Build();
 
