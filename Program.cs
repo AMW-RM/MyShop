@@ -11,6 +11,8 @@ namespace MyShop
 
             builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
             builder.Services.AddScoped<IProductRepository, MockProductRepository>();
+            builder.Services.AddScoped<IIndexRepository, MockIndexRepository>();
+
 
             var app = builder.Build();
 

@@ -1,0 +1,46 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Strona główna";
+}
+
+<div class="container mt-5">
+    <!-- Hero Section -->
+    <div class="p-5 mb-4 bg-light rounded-3 shadow-sm">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">@Model.HeroTitle</h1>
+            <p class="col-md-8 fs-4">@Model.HeroDescription</p>
+            <a href="/Home/Contact" class="btn btn-primary btn-lg">Skontaktuj się z nami</a>
+        </div>
+    </div>
+
+    <!-- O nas -->
+    <div class="row text-center mb-5">
+        <div class="col">
+            <h2>@Model.AboutTitle</h2>
+            <p class="lead mt-3">@Model.AboutText</p>
+        </div>
+    </div>
+
+    <!-- Usługi -->
+
+    <div class="row text-center mb-5">
+        @foreach (var service in Model.Services)
+        {
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@service.Title</h5>
+                        <p class="card-text">@service.Description</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-5">
+        <h3>@Model.CtaTitle</h3>
+        <p class="lead">@Model.CtaText</p>
+        <a href="/Home/Contact" class="btn btn-success btn-lg">Wyślij zapytanie</a>
+    </div>
+</div>
