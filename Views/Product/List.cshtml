@@ -1,4 +1,20 @@
 ﻿@model ProductListViewModel
+
+@functions {
+    public string GetRandomColor(string text)
+    {
+        string[] colors = {
+           "#3498db", "#2ecc71", "#e74c3c", "#9b59b6",
+           "#f1c40f", "#1abc9c", "#34495e", "#e67e22" };
+        int hashCode = 0;
+        foreach (var item in text)
+        {
+            hashCode += (int)item;
+        }
+        return colors[hashCode % colors.Length];
+    }
+}
+
 <div class="row mb-4">
     <div class="col">
         <h1 class="display-4 mb-4">
@@ -11,6 +27,13 @@
     {
         <div class="col">
             <div class="card h-100 shadow-sm">
+
+                <div class="card-img-product text-center py-4"
+                     style="background-color: @GetRandomColor(product.Name); height: 180px;">
+                    <i class="bi bi-box-seam display-1 text-white"></i>
+                    <div class="product-name text-white fw-bold">@product.Name</div>
+                </div>
+
                 <div class="card-body">
                     <h5 class="card-title">@product.Name</h5>
                     <div class="mb-2">
