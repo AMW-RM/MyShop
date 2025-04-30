@@ -2,7 +2,7 @@
 
 namespace MyShop.Models
 {
-    public interface IMockContactRepository
+    public interface IContactRepository
     {
         ContactViewModel GetContactInfo();
     }

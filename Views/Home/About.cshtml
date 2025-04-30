@@ -1,0 +1,139 @@
+﻿@model AboutViewModel;
+@{
+    ViewData["Title"] = "O nas";
+}
+<div class="container mt-5">
+    <!-- Hero / Sekcja O nas -->
+    <div class="bg-light rounded-4 p-5 shadow-sm mt-5">
+        <div class="row align-items-center">
+            <!-- Tekst -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h1 class="display-5 fw-bold">@Model.CompanyName</h1>
+                <p class="lead mt-3">
+                    @Model.Description
+                </p>
+               @*  <ul class="list-unstyled mt-4">
+                    <li class="mb-2">✅ <strong>11+ lat</strong> doświadczenia</li>
+                    <li class="mb-2">✅ <strong>500+</strong> zadowolonych klientów</li>
+                    <li class="mb-2">✅ <strong>50+</strong> ekspertów w zespole</li>
+                </ul> *@
+                <ul class="list-unstyled mt-4">
+                    @foreach (var point in Model.KeyPoints)
+                    {
+                        <li class="mb-2">@point</li>
+                    }
+                </ul>
+            </div>
+            <!-- Ilustracja -->
+            <div class="col-lg-6 text-center">
+                <img src="@Model.ImagePath" alt="Ilustracja zespołu" class="img-fluid" style="max-height: 300px;" />
+            </div>
+        </div>
+    </div>
+    <!-- Testimonials -->
+    <div class="row mt-5">
+        <div class="col-md-10 offset-md-1">
+            <h3 class="text-center mb-4">Opinie naszych klientów</h3>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Opinie -->
+                    <div class="carousel-item active">
+                        <div class="card text-center p-4 shadow-sm">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle mx-auto mb-3" width="80" height="80" />
+                            <blockquote class="blockquote">
+                                <p class="mb-0">"Świetna współpraca! Zespół bardzo profesjonalny i pomocny."</p>
+                            </blockquote>
+                            <footer class="blockquote-footer mt-2">Jan Kowalski, <cite>Firma XYZ</cite></footer>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card text-center p-4 shadow-sm">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle mx-auto mb-3" width="80" height="80" />
+                            <blockquote class="blockquote">
+                                <p class="mb-0">"Rozwiązania dopasowane idealnie do naszych potrzeb. Polecam w 100%!"</p>
+                            </blockquote>
+                            <footer class="blockquote-footer mt-2">Anna Nowak, <cite>Tech Solutions</cite></footer>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card text-center p-4 shadow-sm">
+                            <img src="https://randomuser.me/api/portraits/men/54.jpg" class="rounded-circle mx-auto mb-3" width="80" height="80" />
+                            <blockquote class="blockquote">
+                                <p class="mb-0">"Obsługa klienta na najwyższym poziomie. Na pewno wrócimy!"</p>
+                            </blockquote>
+                            <footer class="blockquote-footer mt-2">Michał Zieliński, <cite>Ecom Plus</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Partnerzy (logo firm) -->
+    <div class="row mt-5 text-center">
+        <h3 class="mb-4">Firmy, które nam zaufały</h3>
+        <div class="col-md-2 col-4 mb-4">
+            <img src="https://1000logos.net/wp-content/uploads/2021/04/Microsoft-logo.png" class="img-fluid" style="max-height: 50px;" alt="Microsoft" />
+        </div>
+        <div class="col-md-2 col-4 mb-4">
+            <img src="https://1000logos.net/wp-content/uploads/2021/05/IBM-logo.png" class="img-fluid" style="max-height: 50px;" alt="IBM" />
+        </div>
+        <div class="col-md-2 col-4 mb-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="img-fluid" style="max-height: 50px;" alt="Apple" />
+        </div>
+        <div class="col-md-2 col-4 mb-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Google-flutter-logo.svg" class="img-fluid" style="max-height: 50px;" alt="Flutter" />
+        </div>
+        <div class="col-md-2 col-4 mb-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" class="img-fluid" style="max-height: 50px;" alt="Google" />
+        </div>
+        <div class="col-md-2 col-4 mb-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="img-fluid" style="max-height: 50px;" alt="Amazon" />
+        </div>
+    </div>
+    <!-- Zespół -->
+    <div class="row mt-5">
+        <h3 class="text-center mb-4">Nasz zespół</h3>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card text-center shadow-sm">
+                <img src="https://randomuser.me/api/portraits/men/11.jpg" class="card-img-top" alt="John" />
+                <div class="card-body">
+                    <h5 class="card-title">Kamil Brzozowski</h5>
+                    <p class="card-text text-muted">CEO & Founder</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card text-center shadow-sm">
+                <img src="https://randomuser.me/api/portraits/women/12.jpg" class="card-img-top" alt="Anna" />
+                <div class="card-body">
+                    <h5 class="card-title">Anna Wójcik</h5>
+                    <p class="card-text text-muted">CTO</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card text-center shadow-sm">
+                <img src="https://randomuser.me/api/portraits/men/18.jpg" class="card-img-top" alt="Marek" />
+                <div class="card-body">
+                    <h5 class="card-title">Marek Lewandowski</h5>
+                    <p class="card-text text-muted">Backend Developer</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card text-center shadow-sm">
+                <img src="https://randomuser.me/api/portraits/women/19.jpg" class="card-img-top" alt="Kasia" />
+                <div class="card-body">
+                    <h5 class="card-title">Katarzyna Maj</h5>
+                    <p class="card-text text-muted">UX Designer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

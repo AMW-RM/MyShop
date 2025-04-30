@@ -6,13 +6,16 @@ namespace MyShop.Controllers
     public class HomeController : Controller
     {
         private readonly IIndexRepository _indexRepository;
-        private readonly IMockContactRepository _mockContactRepository;
+        private readonly IContactRepository _contactRepository;
+        private readonly IAboutRepository _aboutRepository;
 
         public HomeController(IIndexRepository indexRepository,
-            IMockContactRepository mockContactRepository)
+            IContactRepository contactRepository,
+            IAboutRepository aboutRepository)
         {
             _indexRepository = indexRepository;
-            _mockContactRepository = mockContactRepository;
+            _contactRepository = contactRepository;
+            _aboutRepository = aboutRepository;
         }
         public IActionResult Index()
         {
@@ -21,14 +24,14 @@ namespace MyShop.Controllers
         }
         public IActionResult Contact()
         {
-            var model = _mockContactRepository.GetContactInfo();
+            var model = _contactRepository.GetContactInfo();
             return View(model);
         }
 
         public IActionResult About()
         {
-
-            return View();
+            //alternatywa powyższych
+            return View(_aboutRepository.GetCompanyInfo());
         }
     }
 }

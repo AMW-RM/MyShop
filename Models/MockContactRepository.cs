@@ -2,7 +2,7 @@
 
 namespace MyShop.Models
 {
-    public class MockContactRepository : IMockContactRepository
+    public class MockContactRepository : IContactRepository
     {
         public ContactViewModel GetContactInfo()
         {
