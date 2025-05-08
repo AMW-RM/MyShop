@@ -10,8 +10,10 @@ namespace MyShop
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();//w³¹czamy kolekcje MVC
            
-            builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
-            builder.Services.AddScoped<IProductRepository, MockProductRepository>();
+            //builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            // builder.Services.AddScoped<IProductRepository, MockProductRepository>();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
             builder.Services.AddScoped<IIndexRepository, MockIndexRepository>();
             builder.Services.AddScoped<IContactRepository, MockContactRepository>();
             builder.Services.AddScoped<IAboutRepository, MockAboutRepository>();
