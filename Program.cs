@@ -32,6 +32,8 @@ namespace MyShop
             }
             app.UseStaticFiles();
             app.MapDefaultControllerRoute();//mozliwoœæ nawigacji na stronach
+
+            DbInitializer.Seed(app);
             app.Run();
 
            
