@@ -36,7 +36,7 @@ namespace MyShop
 
             app.MapControllerRoute(
                 name:"handlowiec",
-                pattern:"{controller=Product}/{action=List}/{id?}" );
+                pattern:"{controller=Home}/{action=Index}/{id?}" );
 
             DbInitializer.Seed(app);
             app.Run();

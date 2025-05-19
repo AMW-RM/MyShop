@@ -36,6 +36,27 @@
             </div>
         }
     </div>
+    <!-- Produkty tygodnia -->
+
+    <div class="row text-center mb-5">
+        @foreach (var product in Model.ProductsOfTheWeek)
+        {
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a class="nav-link" asp-controller="Product" asp-action="Details" asp-route-id="@product.ProductId">
+                                @product.Name
+                            </a>
+
+                        </h5>
+                        <p class="card-text">@product.ShortDescription</p>
+                        <p class="card-text">@product.Price.ToString("c")</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 
     <!-- CTA -->
     <div class="text-center mt-5">
