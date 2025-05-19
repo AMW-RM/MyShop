@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyShop.Models;
 using MyShop.ViewModels;
+using System.Numerics;
 
 namespace MyShop.Controllers;
 
@@ -26,5 +27,13 @@ public class ProductController : Controller
         );
 
         return View(productListViewModel);
+    }
+    public IActionResult Details(int id)
+    {
+        var product = _productRepository.GetProductById(id);
+        if (product == null) 
+            return NotFound();
+        return View(product);
+
     }
 }

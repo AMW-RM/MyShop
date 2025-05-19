@@ -31,7 +31,12 @@ namespace MyShop
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
-            app.MapDefaultControllerRoute();//mozliwoœæ nawigacji na stronach
+            //app.MapDefaultControllerRoute();//mozliwoœæ nawigacji na stronach, kontroler [domyslnie:home, action-->index]
+                                            // ”{controller=Home}/{action=Index}/{id?}”
+
+            app.MapControllerRoute(
+                name:"handlowiec",
+                pattern:"{controller=Product}/{action=List}/{id?}" );
 
             DbInitializer.Seed(app);
             app.Run();

@@ -33,7 +33,14 @@
                 <div class="card-img-product text-center py-4"
                      style="background-color: @GetRandomColor(product.Name); height: 180px;">
                     <i class="bi bi-box-seam display-1 text-white"></i>
-                    <div class="product-name text-white fw-bold">@product.Name</div>
+                    <div class="product-name text-white fw-bold">
+                        <a asp-controller="Product"
+                           asp-action="Details"
+                           asp-route-id="@product.ProductId">
+                            @product.Name
+                        </a>
+
+                    </div>
                 </div>
 
                 <div class="card-body">
