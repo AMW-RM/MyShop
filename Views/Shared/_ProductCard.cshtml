@@ -1,0 +1,66 @@
+﻿@model Product
+
+@functions {
+    public string GetRandomColor(string text)
+    {
+        string[] colors = {
+           "#3498db", "#2ecc71", "#e74c3c", "#9b59b6",
+           "#f1c40f", "#1abc9c", "#34495e", "#e67e22" };
+        int hashCode = 0;
+        foreach (var item in text)
+        {
+            hashCode += (int)item;
+        }
+        return colors[hashCode % colors.Length];
+ 
+    }
+}
+
+<div class="col">
+    <div class="card h-100 shadow-sm">
+
+        <div class="card-img-Model text-center py-4"
+             style="background-color: @GetRandomColor(Model.Name); height: 180px;">
+            <i class="bi bi-box-seam display-1 text-white"></i>
+            <div class="Model-name text-white fw-bold">
+                <a asp-controller="Model"
+                   asp-action="Details"
+                   asp-route-id="@Model.ProductId">
+                    @Model.Name
+                </a>
+
+            </div>
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <div class="mb-2">
+                @for (int i = 1; i <= 5; i++)
+                {
+                    if (i <= Math.Floor(Model.Rating))
+                    {
+                        <i class="bi bi-star-fill text-warning"></i>
+                    }
+                    else if (i - 0.5 <= Model.Rating && Model.Rating < i)
+                    {
+                        <i class="bi bi-star-half text-warning"></i>
+                    }
+                    else
+                    {
+                        <i class="bi bi-star text-warning"></i>
+                    }
+                }
+
+                <small class="text-muted ms-1">(@Model.Rating.ToString("0.0"))</small>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-primary">@Model.Category.Name</span>
+                <h4 class="text-success">@Model.Price.ToString("c")</h4>
+            </div>
+            <p class="card-text">@Model.Category.Description</p>
+            <div class="d-grid">
+                <button class="btn btn-outline-primary"><i class="bi bi-cart-plus me-2"></i>Dodaj do koszyka</button>
+            </div>
+        </div>
+    </div>
+</div>

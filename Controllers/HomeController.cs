@@ -29,6 +29,7 @@ namespace MyShop.Controllers
         public IActionResult Contact()
         {
             var model = _contactRepository.GetContactInfo();
+         
             return View(model);
         }
 
