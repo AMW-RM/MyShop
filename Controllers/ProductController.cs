@@ -16,22 +16,34 @@ public class ProductController : Controller
         _categoryRepository = categoryRepository;
     }
 
-    public IActionResult List()
+    public IActionResult List(string category)
     {
-        //var category = _categoryRepository.AllCategories.FirstOrDefault(x => x.CategoryId == 2);
-        var category = _categoryRepository.AllCategories.FirstOrDefault();
-        ProductListViewModel productListViewModel = new ProductListViewModel
-        (
-            _productRepository.AllProducts, 
-            category.Name
-        );
+        IEnumerable<Product> products;
+        string? currentCategory;
 
-        return View(productListViewModel);
+        if (string.IsNullOrEmpty(category))
+        {
+            products = _productRepository.AllProducts.
+                OrderBy(c => c.Category);
+
+            currentCategory = "Wszystkie";
+        }
+        else
+        {
+            products = _productRepository.AllProducts
+                .Where(c => c.Category.Name == category)
+                .OrderBy(c => c.Name);
+
+            currentCategory = _categoryRepository.AllCategories
+                .FirstOrDefault(c => c.Name == category)?.Name;
+        }
+
+          return View(new ProductListViewModel(products, currentCategory));
     }
     public IActionResult Details(int id)
     {
         var product = _productRepository.GetProductById(id);
-        if (product == null) 
+        if (product == null)
             return NotFound();
         return View(product);
 
