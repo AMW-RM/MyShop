@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyShop.Models;
 
@@ -10,9 +11,11 @@ using MyShop.Models;
 namespace MyShop.Migrations
 {
     [DbContext(typeof(MyShopDBContects))]
-    partial class MyShopDBContectsModelSnapshot : ModelSnapshot
+    [Migration("20250612150349_AddShopingCardItem")]
+    partial class AddShopingCardItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

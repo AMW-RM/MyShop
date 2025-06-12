@@ -11,7 +11,7 @@ public class Category : IComparable<Category>
     {
         if (other == null) return 1;
 
-        return string.Compare(this.Name, other.Name, StringComparison.Ordinal);
-        
+        return string.Compare(Name, other.Name, StringComparison.Ordinal);
+
     }
 }

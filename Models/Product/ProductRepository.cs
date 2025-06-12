@@ -15,7 +15,7 @@ public class ProductRepository : IProductRepository
     {
         get
         {
-           return _myShopDBContects.Products.Include(c => c.Category);
+            return _myShopDBContects.Products.Include(c => c.Category);
         }
     }
 
@@ -24,7 +24,7 @@ public class ProductRepository : IProductRepository
     {
         get
         {
-            return _myShopDBContects.Products.Include(c =>c.Category).Where(c => c.IsProductOfTheWeek);
+            return _myShopDBContects.Products.Include(c => c.Category).Where(c => c.IsProductOfTheWeek);
         }
     }
 

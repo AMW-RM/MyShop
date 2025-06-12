@@ -1,5 +1,4 @@
-﻿
-namespace MyShop.Models;
+﻿namespace MyShop.Models;
 
 public class MockCategoryRepository : ICategoryRepository
 {

@@ -1,5 +1,4 @@
 ﻿using MyShop.Models;
-
 namespace MyShop.ViewModels;
 
 public class AboutViewModel
@@ -8,10 +7,7 @@ public class AboutViewModel
     public string Description { get; set; }
     
     public List<string> KeyPoints { get; set; }
-
-    public string ImagePath { get; set; }
+        public string ImagePath { get; set; }
     public List<Product> ProductsOfTheWeek { get; set; }
-
-
 
 }

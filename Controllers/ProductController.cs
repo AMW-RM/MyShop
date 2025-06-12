@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyShop.Models;
 using MyShop.ViewModels;
-using System.Numerics;
 
 namespace MyShop.Controllers;
 

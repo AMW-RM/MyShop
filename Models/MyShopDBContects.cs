@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyShop.Models.Cart;
 
 namespace MyShop.Models;
 
@@ -6,6 +7,7 @@ public class MyShopDBContects : DbContext
 {
     public DbSet<Category> Categories { get; set; }
     public DbSet<Product> Products { get; set; }
+    public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
     public MyShopDBContects(DbContextOptions<MyShopDBContects> contextOptions):base(contextOptions)
     {
