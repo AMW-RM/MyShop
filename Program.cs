@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MyShop.Models;
+using MyShop.Models.Cart;
 
 
 namespace MyShop
@@ -18,6 +19,9 @@ namespace MyShop
             builder.Services.AddScoped<IIndexRepository, MockIndexRepository>();
             builder.Services.AddScoped<IContactRepository, MockContactRepository>();
             builder.Services.AddScoped<IAboutRepository, MockAboutRepository>();
+            builder.Services.AddScoped<IShoppingCart, ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+            builder.Services.AddSession();
+            builder.Services.AddHttpContextAccessor();
             builder.Services.AddDbContext<MyShopDBContects>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("MyShopDbContextConnection"));
@@ -32,6 +36,7 @@ namespace MyShop
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
+            app.UseSession();
             //app.MapDefaultControllerRoute();//mozliwoœæ nawigacji na stronach, kontroler [domyslnie:home, action-->index]
                                             // ”{controller=Home}/{action=Index}/{id?}”
 
